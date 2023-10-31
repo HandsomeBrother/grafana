@@ -4,8 +4,8 @@ import React from 'react';
 import { GrafanaTheme2 } from '@grafana/data';
 import { selectors } from '@grafana/e2e-selectors';
 import { config, locationService, reportInteraction } from '@grafana/runtime';
-import { Button, useStyles2, Text } from '@grafana/ui';
-import { Box, Flex } from '@grafana/ui/src/unstable';
+import { Button, useStyles2, Text, Box } from '@grafana/ui';
+import { Flex } from '@grafana/ui/src/unstable';
 import { Trans } from 'app/core/internationalization';
 import { DashboardModel } from 'app/features/dashboard/state';
 import { onAddLibraryPanel, onCreateNewPanel, onImportDashboard } from 'app/features/dashboard/utils/dashboard';
@@ -27,7 +27,7 @@ const DashboardEmpty = ({ dashboard, canCreate }: Props) => {
     <Flex alignItems="center" justifyContent="center">
       <div className={styles.wrapper}>
         <Flex alignItems="stretch" justifyContent="center" gap={4} direction="column">
-          <Box borderStyle="dashed" borderColor="info" padding={4}>
+          <Box borderColor="strong" borderStyle="dashed" padding={4}>
             <Flex direction="column" alignItems="center" gap={2}>
               <Text element="h1" textAlignment="center" weight="medium">
                 <Trans i18nKey="dashboard.empty.add-visualization-header">
@@ -60,7 +60,7 @@ const DashboardEmpty = ({ dashboard, canCreate }: Props) => {
           </Box>
           <Flex direction={{ xs: 'column', md: 'row' }} wrap="wrap" gap={4}>
             {config.featureToggles.vizAndWidgetSplit && (
-              <Box borderStyle="dashed" borderColor="info" padding={3} grow={1}>
+              <Box borderColor="strong" borderStyle="dashed" padding={3} grow={1}>
                 <Flex direction="column" alignItems="center" gap={1}>
                   <Text element="h3" textAlignment="center" weight="medium">
                     <Trans i18nKey="dashboard.empty.add-widget-header">Add a widget</Trans>
@@ -85,7 +85,7 @@ const DashboardEmpty = ({ dashboard, canCreate }: Props) => {
                 </Flex>
               </Box>
             )}
-            <Box borderStyle="dashed" borderColor="info" padding={3} grow={1}>
+            <Box borderColor="strong" borderStyle="dashed" padding={3} grow={1}>
               <Flex direction="column" alignItems="center" gap={1}>
                 <Text element="h3" textAlignment="center" weight="medium">
                   <Trans i18nKey="dashboard.empty.add-library-panel-header">Import panel</Trans>
@@ -111,7 +111,7 @@ const DashboardEmpty = ({ dashboard, canCreate }: Props) => {
                 </Button>
               </Flex>
             </Box>
-            <Box borderStyle="dashed" borderColor="info" padding={3} grow={1}>
+            <Box borderColor="strong" borderStyle="dashed" padding={3} grow={1}>
               <Flex direction="column" alignItems="center" gap={1}>
                 <Text element="h3" textAlignment="center" weight="medium">
                   <Trans i18nKey="dashboard.empty.import-a-dashboard-header">Import a dashboard</Trans>

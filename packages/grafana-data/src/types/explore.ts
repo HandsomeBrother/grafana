@@ -31,12 +31,23 @@ export interface ExplorePanelsState extends Partial<Record<PreferredVisualisatio
   logs?: ExploreLogsPanelState;
 }
 
+/**
+ * Keep a list of vars the correlations editor / helper in explore will use
+ */
+/** @internal */
+export interface ExploreCorrelationHelperData {
+  resultField: string;
+  vars: Record<string, string>;
+}
+
 export interface ExploreTracePanelState {
   spanId?: string;
 }
 
 export interface ExploreLogsPanelState {
   id?: string;
+  columns?: Record<number, string>;
+  visualisationType?: 'table' | 'logs';
 }
 
 export interface SplitOpenOptions<T extends AnyQuery = AnyQuery> {
@@ -46,6 +57,7 @@ export interface SplitOpenOptions<T extends AnyQuery = AnyQuery> {
   queries?: T[];
   range?: TimeRange;
   panelsState?: ExplorePanelsState;
+  correlationHelperData?: ExploreCorrelationHelperData;
 }
 
 /**
